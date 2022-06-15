@@ -18,7 +18,8 @@ app.use("/api/posts", require("./routes/postRoute"));
 app.use("/api/user", require("./routes/userRouter"));
 
 // Connect to MongoDB
-const URI = process.env.URI;
+const URI =
+  "mongodb+srv://user:user@cluster0.dlqk4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 mongoose
   .connect(URI, {
@@ -33,7 +34,7 @@ mongoose
     console.error("Error connecting to Mongo", err);
   });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log("Server is running on port", PORT);
 });
